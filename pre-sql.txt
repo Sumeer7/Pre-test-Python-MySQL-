@@ -1,0 +1,6 @@
+with abc as (select departmentcode,avg(salary) as dep_avg from employee
+group by departmentcode)
+
+select e.employeename,e.salary from employee e inner join abc a on a.departmentcode=e.departmentcode
+where e.salary>a.dep_avg; 
+
